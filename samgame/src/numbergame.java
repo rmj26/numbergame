@@ -3,23 +3,40 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class numbergame {
 
-    public static void main (String args []) {
-        int x;
+    public static void main(String[] args) {
 
-        int y;
 
         String userinput;
         Scanner input = new Scanner(System.in); // input
-        y = ThreadLocalRandom.current().nextInt(1, 100); // random number generator
-        System.out.println("");
-do {
-    y = ThreadLocalRandom.current().nextInt(1,100);
+        // random number generator
+        System.out.println();
+
+        do {
 
 
+            playinggame(input);
+
+
+            System.out.println("you guessed correctly");
+            System.out.println("would you like to play again press Y for yes and N for no");
+            userinput = input.next();
+
+        }
+
+        while (userinput.equalsIgnoreCase("y") || userinput.equalsIgnoreCase("Yes"));
+
+    }
+
+
+    public static void playinggame(Scanner input)
+
+    {
+        int value1 = 0;
+        int y = ThreadLocalRandom.current().nextInt(1, 100);
         do {
             System.out.println("Enter a number between 1 and 100"); /// asking the user to enter a value
 
-            x = input.nextInt(); // value would be stored in x
+            value1 = input.nextInt(); // value would be stored in x
 
 
             //   do
@@ -27,8 +44,7 @@ do {
             //  System.out.println("Chose a number lower than your guess");
 
 
-
-             if (x > y) {
+            if (value1 > y) {
                 System.out.println("Chose a number lower than your guess");
             } else {
                 System.out.println("Chose a number higher than your guess");
@@ -36,16 +52,9 @@ do {
 
         }
 
-        while (x != y);
+        while (value1 != y);
 
-
-
-                System.out.println("you guessed correctly");
-                System.out.println("would you like to play again press Y for yes and N for no");
-                userinput=input.next();
-
-            }
-
-            while (userinput.equalsIgnoreCase("y")||userinput.equalsIgnoreCase("Yes"));
     }
-        }
+
+}
+
